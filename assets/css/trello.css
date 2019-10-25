@@ -1,0 +1,12 @@
+.list {
+    background-color: grey;
+    padding: 5px;
+    margin: 10px;
+}
+
+.card {
+    padding: 5px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: fuchsia;
+}

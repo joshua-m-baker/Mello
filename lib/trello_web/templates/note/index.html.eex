@@ -1,0 +1,8 @@
+<div style="text-align:center">    
+    <div class="row">            
+        <%= for list <- @list_data do %>
+            <%=render("list.html", list: list) %>
+        <% end %>
+
+    </div>
+</div>

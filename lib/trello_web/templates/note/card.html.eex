@@ -1,0 +1,5 @@
+<div class="card">
+    <%= @card.name %>
+    <br>
+    <%= @card.description%>
+</div>

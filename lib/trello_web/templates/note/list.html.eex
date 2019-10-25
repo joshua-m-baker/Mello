@@ -1,0 +1,10 @@
+<div class="list">
+    <%= @list.name %>
+
+    <%= for card <- @list.cards do %>
+
+        <div class="row">
+            <%=render("card.html", card: card) %>
+        </div>
+    <% end %>
+</div> 
