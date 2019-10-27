@@ -1,4 +1,4 @@
-defmodule Trello.Repo.Migrations.CreateLists do
+defmodule Trello.Repo.Migrations.CreateList do
   use Ecto.Migration
 
   def change do
@@ -7,6 +7,5 @@ defmodule Trello.Repo.Migrations.CreateLists do
 
       timestamps()
     end
-
   end
 end

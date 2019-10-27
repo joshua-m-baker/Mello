@@ -6,5 +6,10 @@
         <div class="row">
             <%=render("card.html", card: card) %>
         </div>
-    <% end %>
+    <% end %> 
+               
+    <a href=<%="/cards/new"%> class="card">
+    New...
+    </a>
+
 </div> 

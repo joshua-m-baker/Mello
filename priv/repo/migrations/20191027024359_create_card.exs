@@ -1,4 +1,4 @@
-defmodule Trello.Repo.Migrations.CreateCards do
+defmodule Trello.Repo.Migrations.CreateCard do
   use Ecto.Migration
 
   def change do
@@ -8,6 +8,5 @@ defmodule Trello.Repo.Migrations.CreateCards do
       add :list_id, references(:lists)
       timestamps()
     end
-
   end
 end

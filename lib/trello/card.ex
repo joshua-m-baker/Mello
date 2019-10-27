@@ -15,4 +15,5 @@ defmodule Trello.Card do
     |> cast(attrs, [:name, :description])
     |> validate_required([:name, :description])
   end
+
 end

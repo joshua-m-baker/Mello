@@ -1,0 +1,12 @@
+<h1> New Card </h2>
+<%= form_for @changeset, Routes.card_path(@conn, :create), fn f-> %>
+    <label>
+        Name: <%= text_input f, :name%>
+    <label>
+
+    <label>
+        Description: <%= text_input f, :description%>
+    <label>
+
+    <%= submit "Submit" %>
+<% end %>

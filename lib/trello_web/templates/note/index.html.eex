@@ -3,6 +3,5 @@
         <%= for list <- @list_data do %>
             <%=render("list.html", list: list) %>
         <% end %>
-
     </div>
 </div>

@@ -1,0 +1,7 @@
+<form action=<%="/cards/#{@card.id}/edit"%>>
+    Name:<br>
+    <input type="text" name="card_name" value="<%=@card.name%>">
+    Description:<br>
+    <input type="text" name="card_description" value="<%=@card.description%>">
+    <input type="submit" value="Save">
+</form>

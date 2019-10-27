@@ -20,6 +20,7 @@ defmodule TrelloWeb.Router do
     get "/hello", HelloController, :index 
     get "/hello/:messenger", HelloController, :show
     get "/notes", NoteController, :index
+    resources "/cards", CardController
     resources "/users", UserController
   end
 
