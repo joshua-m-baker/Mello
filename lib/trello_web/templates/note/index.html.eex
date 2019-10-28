@@ -1,7 +1,7 @@
 <div style="text-align:center">    
     <div class="row">            
         <%= for list <- @list_data do %>
-            <%=render("list.html", list: list) %>
+            <%=render("list.html", list: list, conn: @conn) %>
         <% end %>
     </div>
 </div>

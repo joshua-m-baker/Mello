@@ -9,26 +9,28 @@ defmodule TrelloWeb.CardController do
 
     def show(conn, %{"id" => card_id}) do
         card = Trello.Repo.get(Trello.Card, card_id)
-        render(conn, "card_view.html", card: card)
+        changeset = Card.changeset(card, %{})
+        render(conn, "card_view.html", changeset: changeset)
     end
 
-    def edit(conn, %{"card_name" => name, "card_description" => description, "id" => card_id}) do
-        
-        c = Repo.get!(Card, card_id)
-        cs = Card.changeset(c, %{name: name, description: description})
+    def update(conn, %{"id" => id, "card" => params}) do
+        IO.inspect params
+        c = Repo.get!(Card, id)
+        changeset = Card.changeset(c, params)
 
-        case Repo.update(cs) do 
+        case Repo.update(changeset) do 
             {:ok, c} -> 
-                IO.puts "Updated"
-            {:error, cs} -> 
-                IO.puts "Failed"
+                conn 
+                |> put_flash(:info, "Card updated successfully") 
+                |> redirect(to: Routes.note_path(conn, :index))
+            {:error, %Ecto.Changeset{} = changeset} -> 
+                render(conn, "card_view.html", changeset: changeset)
         end
-        redirect(conn, to: "/notes")
     end
 
     def new(conn, params) do 
         changeset = List.change_card(%Card{})
-        render(conn, "new.html", changeset: changeset)
+        render(conn, "new.html", changeset: changeset, list_id: conn.path_params["note_id"])
     end 
 
     def create(conn, %{"card" => card_params}) do 
@@ -41,7 +43,5 @@ defmodule TrelloWeb.CardController do
             {:error, %Ecto.Changeset{} = changeset} -> 
                 render(conn, "new.html", changeset: changeset)
         end
-
     end
-
-  end
+end

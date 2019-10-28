@@ -8,7 +8,7 @@
         </div>
     <% end %> 
                
-    <a href=<%="/cards/new"%> class="card">
+    <a href="<%=Routes.note_card_path(@conn, :new, @list.id)%>" class="card">
     New...
     </a>
 

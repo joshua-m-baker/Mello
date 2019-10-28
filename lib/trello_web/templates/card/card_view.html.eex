@@ -1,7 +1,21 @@
-<form action=<%="/cards/#{@card.id}/edit"%>>
-    Name:<br>
-    <input type="text" name="card_name" value="<%=@card.name%>">
-    Description:<br>
-    <input type="text" name="card_description" value="<%=@card.description%>">
-    <input type="submit" value="Save">
-</form>
+<h1> Edit Card </h2>
+<%# Routes.note_card_path(@conn, :update, @conn.path_params["note_id"], @conn.path_params["id"]) %>
+<%= form_for @changeset, Routes.note_card_path(@conn, :update, @conn.path_params["note_id"], @conn.path_params["id"]), fn f-> %>
+    <%= if @changeset.action do %>
+        <div class="alert alert-danger">
+            <p>Oops, something went wrong! Please check the errors below. </p>
+        </div>
+    <% end %>
+
+    <div>
+        Name: <%= text_input f, :name%>
+        <%= error_tag f, :name %>
+    </div>
+
+    <div>
+        Description: <%= text_input f, :description%>
+        <%= error_tag f, :description %>
+    </div>
+
+    <%= submit "Submit" %>
+<% end %>
