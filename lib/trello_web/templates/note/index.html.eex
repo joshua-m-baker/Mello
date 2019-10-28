@@ -3,5 +3,8 @@
         <%= for list <- @list_data do %>
             <%=render("list.html", list: list, conn: @conn) %>
         <% end %>
+        <a href=<%="/notes/new"%> class="card">
+            New List...
+        </a>
     </div>
 </div>

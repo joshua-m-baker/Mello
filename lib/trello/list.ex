@@ -14,8 +14,18 @@ defmodule Trello.List do
   def changeset(list, attrs) do
     list
     |> cast(attrs, [:name])
-    |> validate_required([:name])
+    |> validate_required([:name]) 
   end
+
+  def new_list(%List{} = list) do
+    List.changeset(list, %{})
+  end
+
+  def create_list(attrs \\ %{}) do 
+    %List{} 
+    |> List.changeset(attrs)
+    |> Repo.insert()
+  end 
 
   @doc false
   def change_card(%Card{} = card) do

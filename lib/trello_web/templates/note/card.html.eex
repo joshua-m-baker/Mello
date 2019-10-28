@@ -1,4 +1,4 @@
-<a href=<%="/notes/1/cards/#{@card.id}"%> class="card">
+<a href=<%="/notes/#{@list.id}/cards/#{@card.id}"%> class="card">
     <%= @card.name %>
     <br>
     <%= @card.description %>

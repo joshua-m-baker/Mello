@@ -4,7 +4,7 @@
     <%= for card <- @list.cards do %>
 
         <div class="row">
-            <%=render("card.html", card: card) %>
+            <%=render("card.html", card: card, list: @list) %>
         </div>
     <% end %> 
                
