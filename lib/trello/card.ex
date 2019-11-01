@@ -12,8 +12,8 @@ defmodule Trello.Card do
   @doc false
   def changeset(card, attrs) do
     card
-    |> cast(attrs, [:name, :description])
+    |> cast(attrs, [:name, :description, :list_id])
     |> validate_required([:name, :description])
+    |> cast_assoc(:list)
   end
-
 end

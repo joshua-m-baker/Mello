@@ -15,7 +15,7 @@ defmodule TrelloWeb.CardController do
 
     def update(conn, %{"id" => id, "card" => params, "note_id" => list_id}) do
         c = Repo.get!(Card, id) |> Repo.preload(:list)
-        changeset = Card.changeset(c, params) |> List.move_card(params["list_id"])
+        changeset = Card.changeset(c, params) 
         IO.inspect changeset
         case Repo.update(changeset) do 
             {:ok, c} -> 
