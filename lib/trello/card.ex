@@ -5,7 +5,7 @@ defmodule Trello.Card do
   schema "cards" do
     field :description, :string
     field :name, :string
-    belongs_to :list, Trello.List
+    belongs_to :list, Trello.List, [on_replace: :update]
     timestamps()
   end
 

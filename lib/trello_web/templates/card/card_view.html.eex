@@ -1,4 +1,6 @@
-<h1> Edit Card </h2>
+<h1> Edit Card </h2> 
+<%= link "Delete", to: Routes.note_card_path(@conn, :delete, @conn.path_params["note_id"], @conn.path_params["id"]), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger"%>
+
 <%# Routes.note_card_path(@conn, :update, @conn.path_params["note_id"], @conn.path_params["id"]) %>
 <%= form_for @changeset, Routes.note_card_path(@conn, :update, @conn.path_params["note_id"], @conn.path_params["id"]), fn f-> %>
     <%= if @changeset.action do %>
@@ -16,6 +18,10 @@
         Description: <%= text_input f, :description%>
         <%= error_tag f, :description %>
     </div>
+
+    <label>
+        List: <%= select f, :list_id, @lists, default: @conn.path_params["note_id"]%>
+    <label>
 
     <%= submit "Submit" %>
 <% end %>

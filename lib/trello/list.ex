@@ -1,3 +1,4 @@
+#TODO: new cards not saving to list 2
 defmodule Trello.List do
   use Ecto.Schema
   import Ecto.Changeset
@@ -8,6 +9,14 @@ defmodule Trello.List do
     field :name, :string
     has_many :cards, Trello.Card, on_delete: :delete_all
     timestamps()
+  end
+
+  def get_all_lists() do
+    Repo.all(List)
+  end
+
+  def get_lists_enum() do
+    Repo.all(List) |> Enum.map(&{&1.name, &1.id})
   end
 
   @doc false
@@ -37,5 +46,12 @@ defmodule Trello.List do
     |> Card.changeset(attrs)
     |> Ecto.Changeset.put_assoc(:list, list)
     |> Repo.insert()
-  end 
+  end
+
+  def move_card(card_changeset, list_id) do
+    IO.inspect list_id
+    l = Repo.get(List, list_id)
+    card_changeset |>
+    Ecto.Changeset.put_assoc(:list, l)
+  end
 end

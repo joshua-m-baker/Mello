@@ -10,7 +10,6 @@
     <div>
         Name: <%= text_input f, :name%>
         <%= error_tag f, :name %>
-    </div>
-    
+    </div>    
     <%= submit "Submit" %>
 <% end %>

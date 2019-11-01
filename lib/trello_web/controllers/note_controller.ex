@@ -26,6 +26,4 @@ defmodule TrelloWeb.NoteController do
                 render(conn, "new.html", changeset: changeset)
         end
     end
-
-
-  end
+end
