@@ -1,4 +1,5 @@
-# Trello
+# Mello
+A simple Trello clone built with Elixir and the Phoenix framework 
 
 To start your Phoenix server:
 
